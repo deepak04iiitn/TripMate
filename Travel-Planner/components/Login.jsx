@@ -1,7 +1,7 @@
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
 import React from 'react'
-import { Colors } from './../../../constants/Colors'
 import { useRouter } from 'expo-router'
+import { Colors } from '@/constants/Colors';
 
 export default function Login() {
 

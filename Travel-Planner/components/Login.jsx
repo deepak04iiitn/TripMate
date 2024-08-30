@@ -14,7 +14,7 @@ export default function Login() {
         source={require('./../assets/images/login1.jpg')} 
         style={{
           width: '100%',
-          height: 520,
+          height: 400,
         }} 
       />
 
@@ -54,8 +54,8 @@ export default function Login() {
             fontSize:17,
             textAlign:'center',
             color : Colors.GRAY,
-            marginTop:20
-        }}>Explore the World Without the Worry - Trust Our AI Travel Planner to Design the Perfect Trip Just for You!</Text>
+            marginTop:40
+        }}>"Explore the World Without the Worry - Trust Our AI Travel Planner to Design the Perfect Trip Just for You!"</Text>
 
         <TouchableOpacity style={styles.button} 
             onPress={() => router.push('auth/sign-in')}
@@ -82,6 +82,6 @@ const styles = StyleSheet.create({
         padding:15,
         backgroundColor:Colors.PRIMARY,
         borderRadius:99,
-        marginTop:'25%'
+        marginTop:'15%'
     }
 })

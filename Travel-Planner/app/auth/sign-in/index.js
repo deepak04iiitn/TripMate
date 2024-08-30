@@ -1,5 +1,5 @@
 import { View, Text, TextInput, StyleSheet, TouchableOpacity, ToastAndroid } from 'react-native'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigation, useRouter } from 'expo-router'
 import { Colors } from './../../../constants/Colors'
 import Ionicons from '@expo/vector-icons/Ionicons';
@@ -33,6 +33,7 @@ export default function SignIn() {
             .then((userCredential) => {
                 // Signed in 
                 const user = userCredential.user;
+                router.replace('/mytrip');
                 console.log(user);
                 // ...
             })

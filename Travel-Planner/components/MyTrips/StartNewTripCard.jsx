@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text, TouchableOpacity, Image } from 'react-native'
 import React from 'react'
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { Colors } from '../../constants/Colors';
@@ -8,7 +8,7 @@ export default function StartNewTripCard() {
 
     <View style={{
         padding:20,
-        marginTop:50,
+        marginTop:20,
         display:'flex',
         alignItems:'center',
         gap:25
@@ -46,10 +46,18 @@ export default function StartNewTripCard() {
             }}>
 
                 Start a new Trip
-
+                
             </Text>
 
         </TouchableOpacity>
+
+        <Image 
+            source={require('../../assets/images/startTrip.jpg')} 
+            style={{
+            width: '100%',
+            height: 300,
+            }} 
+        />
 
     </View>
   )

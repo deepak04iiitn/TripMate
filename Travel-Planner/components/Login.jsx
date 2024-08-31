@@ -14,7 +14,7 @@ export default function Login() {
         source={require('./../assets/images/login1.jpg')} 
         style={{
           width: '100%',
-          height: 400,
+          height: 450,
         }} 
       />
 

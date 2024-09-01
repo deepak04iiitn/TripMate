@@ -10,7 +10,7 @@ export default function SelectTraveller() {
 
     const navigation  = useNavigation();
 
-    const [selectedTraveller , setSelectedTraveller] = useState();
+    const [selectedOption , setSelectedOption] = useState();
     const {tripData , setTripData} = useContext(CreateTripContext);
     
     useEffect(() => {
@@ -24,9 +24,9 @@ export default function SelectTraveller() {
 
     useEffect(() => {
         setTripData({...tripData , 
-            traveller : selectedTraveller
+            traveller : selectedOption
         })
-    } , [selectedTraveller])
+    } , [selectedOption])
 
 
     useEffect(() => {
@@ -46,9 +46,10 @@ export default function SelectTraveller() {
       <Text style={{
         fontSize:35,
         fontFamily:'outfit-bold',
-        marginTop:20
+        marginTop:20,
+        textAlign:'center'
       }}>
-        Who's Travelling
+        Who's Travelling?
       </Text>
 
 
@@ -58,8 +59,9 @@ export default function SelectTraveller() {
 
         <Text style={{
             fontFamily:'outfit-bold',
-            fontSize:23
-        }}>Choose your TravelMate</Text>
+            fontSize:23,
+            textAlign:'center'
+        }}>Choose your TravelMate!</Text>
 
         <FlatList 
             data={SelectTravellerList}
@@ -69,11 +71,11 @@ export default function SelectTraveller() {
             renderItem={({item , index}) => (
 
                 <TouchableOpacity 
-                    onPress={() => setSelectedTraveller(item)}
+                    onPress={() => setSelectedOption(item)}
                     style={{
                         marginVertical:10
                     }}>
-                        <OptionCard option={item} selectedTraveller={selectedTraveller} />
+                        <OptionCard option={item} selectedOption={selectedOption} />
 
                 </TouchableOpacity>
 

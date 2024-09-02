@@ -55,7 +55,8 @@ export default function SignUp() {
         padding:25,
         paddingTop:50,
         backgroundColor:Colors.WHITE,
-        height:'100%'
+        height:'100%',
+        
     }}>
 
       <TouchableOpacity onPress={() => router.back()}>
@@ -65,7 +66,8 @@ export default function SignUp() {
       <Text style={{
         fontFamily:'outfit-bold',
         fontSize:30,
-        marginTop:30
+        marginTop:30,
+        textAlign:'center'
       }}>Create New Account</Text>
 
 
@@ -122,7 +124,7 @@ export default function SignUp() {
         }}
     >
         
-        <Text style={{color:Colors.WHITE , textAlign:'center'}}>Create Account</Text>
+        <Text style={{color:Colors.WHITE , textAlign:'center'}}>Create Account ✏️</Text>
 
       </TouchableOpacity>
 
@@ -139,7 +141,7 @@ export default function SignUp() {
             onPress={() => router.replace('auth/sign-in')}
         >
         
-            <Text style={{color:Colors.PRIMARY , textAlign:'center'}}>Sign In</Text>
+            <Text style={{color:Colors.PRIMARY , textAlign:'center'}}>Sign In 🔑</Text>
 
       </TouchableOpacity>
 

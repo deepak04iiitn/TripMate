@@ -67,21 +67,24 @@ export default function SignIn() {
       <Text style={{
          fontFamily:'outfit-bold',
          fontSize:30,
-         marginTop:30
+         marginTop:30,
+         textAlign:'center'
       }}>Let's Sign You In</Text>
 
       <Text style={{
          fontFamily:'outfit',
          fontSize:30,
          color:Colors.GRAY,
-         marginTop:20
-      }}>Welcome Back</Text>
+         marginTop:20,
+         textAlign:'center'
+      }}>Welcome Back 👋</Text>
 
       <Text style={{
          fontFamily:'outfit',
          fontSize:30,
          color:Colors.GRAY,
-         marginTop:10
+         marginTop:10,
+         textAlign:'center'
       }}>You've been missed !</Text>
 
 
@@ -123,7 +126,7 @@ export default function SignIn() {
         }}
     >
         
-        <Text style={{color:Colors.WHITE , textAlign:'center'}}>Sign In</Text>
+        <Text style={{color:Colors.WHITE , textAlign:'center'}}>Sign In 🔑</Text>
 
       </TouchableOpacity>
 
@@ -140,7 +143,7 @@ export default function SignIn() {
             onPress={() => router.replace('auth/sign-up')}
         >
         
-            <Text style={{color:Colors.PRIMARY , textAlign:'center'}}>Create Account</Text>
+            <Text style={{color:Colors.PRIMARY , textAlign:'center'}}>Create Account ✏️</Text>
 
       </TouchableOpacity>
 

@@ -1,0 +1,45 @@
+
+const {
+    GoogleGenerativeAI,
+    HarmCategory,
+    HarmBlockThreshold,
+  } = require("@google/generative-ai");
+  
+  const apiKey = process.env.EXPO_PUBLIC_GOOGLE_GEMINI_API_KEY;
+  const genAI = new GoogleGenerativeAI(apiKey);
+  
+  const model = genAI.getGenerativeModel({
+    model: "gemini-1.5-flash",
+  });
+  
+  const generationConfig = {
+    temperature: 1,
+    topP: 0.95,
+    topK: 64,
+    maxOutputTokens: 8192,
+    responseMimeType: "application/json",
+  };
+  
+    export const chatSession = model.startChat({
+      generationConfig,
+   // safetySettings: Adjust safety settings
+   // See https://ai.google.dev/gemini-api/docs/safety-settings
+      history: [
+        {
+            role: "user",
+            parts: [
+              {text: "Generate Travel Plan for Location : Nagpur, Maharashtra, India, for 3 Days and 2 Night for Family with a Moderate budget with a Flight details , Flight Price with Booking url, Hotels opinions list with Hotel Name, Hotel address, Price, Hotel image url , geo coordinates , rating , descriptions and places to visit nearby with Place name , Place details , Place image url , Geo coordinates , ticket pricing , time to travel each of the location for 3 days and 2 night with each day plan with best time to visit in JSON format.\n"},
+            ],
+          },
+          {
+            role: "model",
+            parts: [
+              {text: "```json\n{\n  \"trip\": {\n    \"destination\": \"Nagpur, Maharashtra, India\",\n    \"duration\": \"3 Days and 2 Nights\",\n    \"budget\": \"Moderate\",\n    \"travelers\": \"Family\"\n  },\n  \"flights\": [\n    {\n      \"airline\": \"IndiGo\",\n      \"departure_city\": \"Mumbai\",\n      \"arrival_city\": \"Nagpur\",\n      \"departure_date\": \"2024-03-15\",\n      \"return_date\": \"2024-03-18\",\n      \"price\": \"₹4,500\",\n      \"booking_url\": \"https://www.goindigo.in/\"\n    }\n  ],\n  \"hotels\": [\n    {\n      \"name\": \"The Spencers\",\n      \"address\": \"Central Avenue, Nagpur, Maharashtra 440001\",\n      \"price\": \"₹3,000 per night\",\n      \"image_url\": \"https://images.trvl-media.com/hotels/1000000/900000/898000/897839/897839_15.jpg\",\n      \"geo_coordinates\": \"21.1481, 79.0724\",\n      \"rating\": 4.5,\n      \"description\": \"A modern hotel with comfortable rooms and excellent service, located near the city center.\",\n      \"places_nearby\": [\n        {\n          \"name\": \"Sitabuldi Fort\",\n          \"details\": \"A historical fort built by the Gond rulers, offering panoramic views of the city.\",\n          \"image_url\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Sitabuldi_Fort_Nagpur.jpg/1280px-Sitabuldi_Fort_Nagpur.jpg\",\n          \"geo_coordinates\": \"21.1537, 79.0704\",\n          \"ticket_pricing\": \"₹10 per person\",\n          \"time_to_travel\": \"1 hour\"\n        },\n        {\n          \"name\": \"Maharaja Bagh\",\n          \"details\": \"A beautiful garden complex with a royal palace, a mausoleum, and a lake.\",\n          \"image_url\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Maharaja_Bagh%2C_Nagpur.JPG/1024px-Maharaja_Bagh%2C_Nagpur.JPG\",\n          \"geo_coordinates\": \"21.1575, 79.0726\",\n          \"ticket_pricing\": \"₹20 per person\",\n          \"time_to_travel\": \"30 minutes\"\n        }\n      ]\n    },\n    {\n      \"name\": \"Hotel Centre Point\",\n      \"address\": \"Central Avenue, Nagpur, Maharashtra 440001\",\n      \"price\": \"₹2,500 per night\",\n      \"image_url\": \"https://media-cdn.tripadvisor.com/media/photo-s/0e/40/93/7a/hotel-centre-point.jpg\",\n      \"geo_coordinates\": \"21.1465, 79.0719\",\n      \"rating\": 4,\n      \"description\": \"A budget-friendly option with clean and comfortable rooms, located near the railway station.\",\n      \"places_nearby\": [\n        {\n          \"name\": \"Nagpur Railway Station\",\n          \"details\": \"The main railway station of Nagpur, well-connected to other cities in India.\",\n          \"image_url\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Nagpur_railway_station.jpg/1024px-Nagpur_railway_station.jpg\",\n          \"geo_coordinates\": \"21.1458, 79.0715\",\n          \"ticket_pricing\": \"N/A\",\n          \"time_to_travel\": \"5 minutes\"\n        },\n        {\n          \"name\": \"Zero Mile\",\n          \"details\": \"The geographical center of India, marked by a monument.\",\n          \"image_url\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Zero_Mile%2C_Nagpur.JPG/1200px-Zero_Mile%2C_Nagpur.JPG\",\n          \"geo_coordinates\": \"21.1452, 79.0718\",\n          \"ticket_pricing\": \"N/A\",\n          \"time_to_travel\": \"10 minutes\"\n        }\n      ]\n    }\n  ],\n  \"daily_plans\": [\n    {\n      \"day\": \"Day 1\",\n      \"time\": \"Morning\",\n      \"activities\": [\n        {\n          \"name\": \"Visit Sitabuldi Fort\",\n          \"details\": \"Explore the historical fort and enjoy panoramic city views.\",\n          \"time_to_spend\": \"2 hours\"\n        }\n      ]\n    },\n    {\n      \"day\": \"Day 1\",\n      \"time\": \"Afternoon\",\n      \"activities\": [\n        {\n          \"name\": \"Lunch at a local restaurant\",\n          \"details\": \"Enjoy authentic Maharashtrian cuisine.\",\n          \"time_to_spend\": \"1 hour\"\n        },\n        {\n          \"name\": \"Visit the Maharaj Bagh\",\n          \"details\": \"Admire the royal palace, mausoleum, and lake.\",\n          \"time_to_spend\": \"2 hours\"\n        }\n      ]\n    },\n    {\n      \"day\": \"Day 1\",\n      \"time\": \"Evening\",\n      \"activities\": [\n        {\n          \"name\": \"Visit the Futala Lake\",\n          \"details\": \"Take a leisurely walk around the lake and enjoy the sunset.\",\n          \"time_to_spend\": \"1 hour\"\n        }\n      ]\n    },\n    {\n      \"day\": \"Day 2\",\n      \"time\": \"Morning\",\n      \"activities\": [\n        {\n          \"name\": \"Visit the Deekshabhoomi\",\n          \"details\": \"A sacred site for Buddhists, with a massive stupa.\",\n          \"time_to_spend\": \"2 hours\"\n        }\n      ]\n    },\n    {\n      \"day\": \"Day 2\",\n      \"time\": \"Afternoon\",\n      \"activities\": [\n        {\n          \"name\": \"Lunch at a restaurant\",\n          \"details\": \"Try some local delicacies.\",\n          \"time_to_spend\": \"1 hour\"\n        },\n        {\n          \"name\": \"Visit the Ramtek Temple\",\n          \"details\": \"A historic Hindu temple dedicated to Lord Rama, located in the outskirts of Nagpur.\",\n          \"time_to_spend\": \"3 hours\"\n        }\n      ]\n    },\n    {\n      \"day\": \"Day 2\",\n      \"time\": \"Evening\",\n      \"activities\": [\n        {\n          \"name\": \"Enjoy a cultural show\",\n          \"details\": \"Experience the vibrant culture of Nagpur.\",\n          \"time_to_spend\": \"2 hours\"\n        }\n      ]\n    },\n    {\n      \"day\": \"Day 3\",\n      \"time\": \"Morning\",\n      \"activities\": [\n        {\n          \"name\": \"Visit the Gandhi Bagh\",\n          \"details\": \"A beautiful garden with a zoo and a museum.\",\n          \"time_to_spend\": \"3 hours\"\n        }\n      ]\n    },\n    {\n      \"day\": \"Day 3\",\n      \"time\": \"Afternoon\",\n      \"activities\": [\n        {\n          \"name\": \"Lunch at a restaurant\",\n          \"details\": \"Enjoy a final meal in Nagpur.\",\n          \"time_to_spend\": \"1 hour\"\n        },\n        {\n          \"name\": \"Shopping at the Central Bazaar\",\n          \"details\": \"Explore the bustling marketplace and pick up some souvenirs.\",\n          \"time_to_spend\": \"2 hours\"\n        }\n      ]\n    },\n    {\n      \"day\": \"Day 3\",\n      \"time\": \"Evening\",\n      \"activities\": [\n        {\n          \"name\": \"Departure\",\n          \"details\": \"Head to the airport for your flight back home.\",\n          \"time_to_spend\": \"1 hour\"\n        }\n      ]\n    }\n  ]\n}\n```\n\n**Note:**\n\n* This is a sample travel plan and can be customized according to your preferences and interests.\n* Flight prices and hotel rates may vary depending on the season and availability.\n* Ticket prices and timings for places of interest can change, so it's always recommended to check the official websites.\n* This plan assumes that you are arriving and departing from Mumbai. You can easily modify it for your starting point.\n* Consider adding activities like a boat ride on Futala Lake or a visit to the Tekdi Ganesh Temple for a more complete experience.\n* Always carry a map and guidebook for easier navigation.\n"},
+            ],
+          },
+      ],
+    });
+  
+    // const result = await chatSession.sendMessage("INSERT_INPUT_HERE");
+    // console.log(result.response.text());
+  

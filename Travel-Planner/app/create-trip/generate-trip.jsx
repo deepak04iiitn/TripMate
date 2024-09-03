@@ -43,6 +43,8 @@ export default function GenerateTrip() {
 
         const tripResp = JSON.parse(result.response.text());
 
+        console.log(tripResp);
+
         setLoading(false);
 
         const docId = (Date.now()).toString();
@@ -53,6 +55,8 @@ export default function GenerateTrip() {
             tripData : JSON.stringify(tripData),         // user selected data
             docId : docId
         })
+
+        console.log(tripData);
 
         router.push('(tabs)/mytrip');
 

@@ -4,12 +4,15 @@ import { Colors } from '../../constants/Colors'
 import moment from 'moment';
 import { TouchableOpacity } from 'react-native';
 import UserTripCard from './UserTripCard';
+import { useNavigation, useRouter } from 'expo-router';
 
 export default function UserTripList({userTrips}) {
 
     const LatestTrip = JSON.parse(userTrips[0]?.tripData);
 
+    const router = useRouter();
 
+    const navigation = useNavigation();
 
   return (
 
@@ -72,18 +75,24 @@ export default function UserTripList({userTrips}) {
 
             </View>
 
-            <TouchableOpacity style={{
-                backgroundColor:Colors.PRIMARY,
-                padding:15,
-                borderRadius:15,
-                marginTop:10,
-            }}>
-                <Text style={{
-                    color:Colors.WHITE,
-                    textAlign:'center',
-                    fontFamily:'outfit-medium',
-                    fontSize:15
-                }}>See your Plan</Text>
+            <TouchableOpacity 
+                onPress={() => router.push({
+                    pathname: '/trip-details',
+                    params: { trip: JSON.stringify(userTrips[0]) } // Serialize the object to a string
+                })}
+                style={{
+                    backgroundColor:Colors.PRIMARY,
+                    padding:15,
+                    borderRadius:15,
+                    marginTop:10,
+                }}
+            >
+                    <Text style={{
+                        color:Colors.WHITE,
+                        textAlign:'center',
+                        fontFamily:'outfit-medium',
+                        fontSize:15
+                    }}>See your Plan</Text>
 
             </TouchableOpacity>
             

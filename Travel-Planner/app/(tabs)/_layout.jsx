@@ -20,7 +20,7 @@ export default function TabLayout() {
 
         <Tabs.Screen name='discover'
             options={{
-                tabBarLabel : 'Discover',
+                tabBarLabel : 'ABout Us',
                 tabBarIcon : ({color}) => <Ionicons name="globe-sharp" size={24} color={color} />
             }} 
         />

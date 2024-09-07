@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, ActivityIndicator } from 'react-native';
+import { View, Text, ScrollView, ActivityIndicator, TouchableOpacity } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { Colors } from '../../constants/Colors';
 import Ionicons from '@expo/vector-icons/Ionicons';
@@ -6,6 +6,7 @@ import StartNewTripCard from '../../components/MyTrips/StartNewTripCard';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { auth, db } from '../../configs/FirebaseConfig';
 import UserTripList from '../../components/MyTrips/UserTripList';
+import { router, useRouter } from 'expo-router';
 
 export default function MyTrip() {
 
@@ -13,6 +14,8 @@ export default function MyTrip() {
   const [loading , setLoading] = useState(false);
 
   const user = auth.currentUser;
+
+  const router = useRouter();
 
   useEffect(() => {
     user && GetMyTrips();
@@ -74,7 +77,10 @@ export default function MyTrip() {
 
         </Text>
 
-        <Ionicons name="add-circle" size={50} color={Colors.SECONDARY} />
+        <TouchableOpacity
+        onPress={() => router.push('/newTrip/StartNewTrip')}>
+            <Ionicons name="add-circle" size={50} color={Colors.SECONDARY} />
+        </TouchableOpacity>
 
       </View>
 

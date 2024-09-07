@@ -38,8 +38,8 @@ export default function SearchPlace() {
     <Image
         source={require('./../../assets/images/location.png')}
         style={{
-          height: 250,
-          width: 200,  
+          height: 100,
+          width: 100,  
           alignSelf: 'center' ,
           marginTop:40
         }}
@@ -50,7 +50,7 @@ export default function SearchPlace() {
         fontSize: 25,
         marginBottom: 20, // Adds space between the text and search bar
         textAlign: 'center',
-        marginTop:40
+        marginTop:30
       }}>Search Destination</Text>
 
 
@@ -82,8 +82,8 @@ export default function SearchPlace() {
             borderWidth: 1,
             borderRadius: 5,
             marginTop: 25,
-            width: '150%',
-            marginLeft:-60
+            width: '100%',
+            
           },
           textInput: {
             height: 40,

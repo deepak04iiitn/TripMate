@@ -24,28 +24,28 @@ export default function discover() {
         <Text style={styles.subTitle}>Why Choose TripMate?</Text>
         <View style={styles.featureItem}>
           <Image 
-            source={require('./../../assets/images/ai.jpg')} 
+            source={require('./../../assets/images/ai.png')} 
             style={styles.icon} 
           />
           <Text style={styles.featureText}>AI-Powered Travel Assistant</Text>
         </View>
         <View style={styles.featureItem}>
           <Image 
-            source={require('./../../assets/images/deals.jpg')} 
+            source={require('./../../assets/images/deals.png')} 
             style={styles.icon} 
           />
           <Text style={styles.featureText}>Best Deals and Recommendations</Text>
         </View>
         <View style={styles.featureItem}>
           <Image 
-            source={require('./../../assets/images/iternary.jpg')}  
+            source={require('./../../assets/images/iternary.png')}  
             style={styles.icon} 
           />
           <Text style={styles.featureText}>Custom Itineraries for Every Trip</Text>
         </View>
         <View style={styles.featureItem}>
           <Image 
-            source={require('./../../assets/images/community.jpg')}  
+            source={require('./../../assets/images/community.png')}  
             style={styles.icon} 
           />
           <Text style={styles.featureText}>Join a Global Travel Community</Text>

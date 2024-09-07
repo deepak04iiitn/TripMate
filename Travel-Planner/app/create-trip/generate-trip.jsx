@@ -70,7 +70,8 @@ export default function GenerateTrip() {
         backgroundColor:Colors.WHITE,
         height:'100%',
         display:'flex',
-        justifyContent:'center'
+        justifyContent:'center',
+        alignItems:'center'
     }}>
 
       <Text style={{
